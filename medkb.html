@@ -19,40 +19,73 @@
 </head>
 <body style="overflow: hidden; background-color: black;">
 
-    <img class="header" src="res/loginpage/FloorGrid.png">
+    <!-- Background -->
+    <img class="header" src="res/loginpage/backdrop.png">
 
+    <!-- Terms and Conditions -->
+    <div class="toc" id="toc" style="display: block;">
+        <p>Terms and Condition</p>
+        <iframe src="res/loginpage/toc.html" title="Terms and Condition"></iframe><br><br><br>
+        <button onclick="clickSound(); closeDiv('toc')">Accept</button>
+        <button onclick="clickSound(); denyTOC();">Deny</button>
+        <script>
+            function denyTOC() {
+                window.close();
+            }
+        </script>
+    </div>
+
+    <!-- Main Page -->
     <div class="login">
         <img src="res/loginpage/logo.png" style="max-width: 50%; height: auto;">
         <br><br>
-        <button id="button1" onclick="logindiv()">LOGIN</button>
+        <button id="button1" class="buttons" onclick="logindiv()">LOGIN</button>
         <br><br>
-        <button id="button2" onclick="registerdiv()">REGISTER</button>
+        <button id="button2" class="buttons" onclick="registerdiv()">REGISTER</button>
+    </div>
+    <div class="controls" id="controls" style="display: none;">
+        <button onclick="controlBGM()" id="bgmControl" class="buttons">music off</button>
     </div>
 
     <!-- Login Form -->
-    <div class="logindiv" id="logindiv">
+    <div class="logindiv" style="display: none;" id="logindiv">
         <h2>login</h2>
+        <button onclick="logindiv()" class="closeButton">X</button>
         <form>
-            <label for="fname">First name:</label><br>
+            <label for="fname" class="fname">Username:</label><br>
             <input type="text" id="fname" name="fname"><br>
+            <label for="fname">Password:</label><br>
+            <input type="password" id="fname" name="fname"><br>
         </form>
-        <button onclick="logindiv()">X</button>
+        <div class="loginControl">
+            <button>LOGIN</button>
+            <button>CANCEL</button>
+        </div>
     </div>
 
     <!-- Register Form -->
     <div class="logindiv" id="registerdiv">
-        <p>register</p>
+        <h2>register</h2>
+        <h3 style="color: red;">not working</h3>
+        <form>
+            <label for="fname">Username:</label><br>
+            <input type="text" id="fname" name="fname"><br>
+            <label for="fname">Password:</label><br>
+            <input type="text" id="fname" name="fname"><br>
+        </form>
         <button onclick="registerdiv()">X</button>
     </div>
 
+    <!-- Starfield -->
     <div style="position: relative; width: 100%; height: 100%; z-index:-1;">
         <canvas id="starfield"></canvas>
         <script src="scripts/medkb.js"></script>
     </div>
     
+    <!-- Requirements -->
     <audio id="hoverAudio" src="res/sfx/cursorhover.mp3"></audio>
     <audio id="clickAudio" src="res/sfx/cursorclick.mp3"></audio>
+    <audio id="loginBGM" src="res/loginpage/bgm.mp3" loop></audio>
     <script src="login.js"></script>
-
 </body>
 </html>

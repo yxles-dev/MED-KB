@@ -35,7 +35,35 @@ div button:active {
 .header {
     position: absolute;
     width: 100%;
-    bottom: 0;
+    height: 100%;
+}
+.toc {
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 500px;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0 0 .2rem #fff,
+                0 0 .2rem #fff,
+                0 0 2rem #5AE32A,
+                0 0 0.8rem #5AE32A,
+                0 0 2.8rem #5AE32A,
+                inset 0 0 1.3rem #5AE32A;
+    position: absolute;
+    backdrop-filter: blur(8px);
+    background: transparent;
+    border-color: #5AE32A;
+    border-style: solid;
+    border-radius: 20px;
+    color: #fff;
+    font-family: 'Orbitron';
+    
+}
+.toc iframe {
+    width: 85%;
+    height: 65%;
 }
 .logindiv {
     display: none;
@@ -43,7 +71,9 @@ div button:active {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-align: center;
+    transition: opacity 0.5s, display 0.5s;
+    /*text-align: center;*/
+    padding-left: 25px;
     position: absolute;
     backdrop-filter: blur(8px);
     background: transparent;
@@ -61,14 +91,37 @@ div button:active {
                 0 0 2.8rem #5AE32A,
                 inset 0 0 1.3rem #5AE32A; 
 }
-.logindiv input[type=text], .logindiv input[type=password] {
+.logindiv h2 {
+    float: left;
+    margin-right: 11em;
+}
+.loginControl {
     width: 100%;
+    padding-top: 200px;
+    padding-left: 9px;
+}
+.closeButton {
+    float: left;
+    margin-top: 14px;
+    width: 12%;
+}
+.controls {
+    z-index: 4;
+    position: fixed;
+    bottom: 0;
+    right: 7%;
+}
+.logindiv input[type=text], .logindiv input[type=password] {
+    float: left;
+    width: 85%;
     padding: 15px;
     margin: 5px 0 22px 0;
-    border: none;
-    background: #f1f1f1;
+    border-style: solid;
+    border-color: #FFB000;
+    background: none;
+    color: #FFB000;
 }
 .logindiv input[type=text]:focus, .logindiv input[type=password]:focus {
     background-color: #ddd;
-    outline: none;
+    outline: green;
 }

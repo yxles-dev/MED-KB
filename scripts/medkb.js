@@ -3,7 +3,7 @@ const ctx = canvas.getContext("2d");
 
 var screen, starArr;
 
-var params = {speed: 10, count: 400, life: 5};
+var params = {speed: 7, count: 400, life: 5};
 
 setup();
 update();
