@@ -1,15 +1,4 @@
-const xhr = new XMLHttpRequest();
-const textArea = document.getElementById('tocTextArea');
-
-xhr.open('GET', 'res/loginpage/toc.txt');
-xhr.onload = () => {
-    if (xhr.status === 200) {
-        textArea.value = xhr.responseText;
-    } else {
-        console.error('Error loading file');
-    }
-};
-xhr.send();
+var tries = 0;
 
 function closeDiv(divId) {
     console.log("Hello World!");
@@ -64,11 +53,11 @@ function controlBGM() {
     if (bgm.duration > 0 && !bgm.paused) {
         console.log("pausing bgm");
         bgm.pause();
-        bgmControl.innerHTML = "music on";
+        bgmControl.innerHTML = "<img src='res/loginpage/musicnote.svg' style='width: 25px; height: 25px; fill='#ff0000';'/>";
     } else {
         console.log("playing bgm");
         bgm.play();
-        bgmControl.innerHTML = "music off";
+        bgmControl.innerHTML = "<img src='res/loginpage/musicnoteslash.svg' style='width: 25px; height: 25px; fill='#ff0000';'/>";
     }
 }
 
@@ -90,4 +79,27 @@ for (var i = 0 ; i < 3; i++) {
 function print() {
     var file = document.getElementById("myFile").files[0];
     console.log(file);
+}
+
+
+function validateLogin() {
+    var username = document.getElementById('fname').value;
+    var password = document.getElementById('password').value;
+
+    console.log(username);
+    console.log(password);
+    console.log(tries);
+
+    if (tries < 3) {
+        if (username === 'Debug' && password === 'debug') {
+            tries++;
+            alert('Login successful');
+            window.location.href = 'game/mainmenu.html';
+        } else {
+            tries++;
+            alert('Wrong account credentials. Please try again.');
+        }
+    } else {
+        alert('tries exceeded 3 times');
+    }
 }

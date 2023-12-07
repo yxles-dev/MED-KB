@@ -109,7 +109,7 @@ div button:active {
     z-index: 4;
     position: fixed;
     bottom: 0;
-    right: 7%;
+    right: 10%;
 }
 .logindiv input[type=text], .logindiv input[type=password] {
     float: left;
