@@ -19,6 +19,17 @@
 </head>
 <body style="overflow: hidden; background-color: black;">
 
+    <!-- Splash Screen -->
+    <div class="splashscreen" id="splashscreen"> 
+        <img src="res/splashscreen/ident.png" class="splashlogo">
+        <div class="center">
+            <div class="range" id="loadbar" style="--p:0">
+                <div class="range__label"></div>
+            </div>
+        </div>
+    </div>
+    <script src="loading.js" defer></script>
+
     <!-- Background -->
     <img class="header" src="res/loginpage/backdrop.png">
 
@@ -40,8 +51,6 @@
         <img src="res/loginpage/logo.png" style="max-width: 50%; height: auto;">
         <br><br>
         <button id="button1" class="buttons" onclick="logindiv()">LOGIN</button>
-        <br><br>
-        <button id="button2" class="buttons" onclick="registerdiv()">REGISTER</button>
     </div>
     <div class="controls" id="controls" style="display: none;">
         <button onclick="controlBGM()" id="bgmControl" class="buttons">music off</button>
@@ -50,7 +59,6 @@
     <!-- Login Form -->
     <div class="logindiv" style="display: none;" id="logindiv">
         <h2>login</h2>
-        <button onclick="logindiv()" class="closeButton">X</button>
         <form>
             <label for="fname" class="fname">Username:</label><br>
             <input type="text" id="fname" name="fname"><br>
@@ -59,21 +67,8 @@
         </form>
         <div class="loginControl">
             <button>LOGIN</button>
-            <button>CANCEL</button>
+            <button onclick="logindiv()">CANCEL</button>
         </div>
-    </div>
-
-    <!-- Register Form -->
-    <div class="logindiv" id="registerdiv">
-        <h2>register</h2>
-        <h3 style="color: red;">not working</h3>
-        <form>
-            <label for="fname">Username:</label><br>
-            <input type="text" id="fname" name="fname"><br>
-            <label for="fname">Password:</label><br>
-            <input type="text" id="fname" name="fname"><br>
-        </form>
-        <button onclick="registerdiv()">X</button>
     </div>
 
     <!-- Starfield -->
